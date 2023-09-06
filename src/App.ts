@@ -26,7 +26,7 @@ function run(jobs:number[], concurrentWorkers: number): Promise<number> {
                 if (msg === WorkState.DONE) {
                     console.log(`Worker ${i + 1} is done.`);
                     if (++completedWorkers === concurrentWorkers) {
-                        const elapsedTime = performance.now(); - startedAt;
+                        const elapsedTime = performance.now() - startedAt;
                         console.log(`${concurrentWorkers} took ${elapsedTime}`);
                         resolve(elapsedTime);
                     }

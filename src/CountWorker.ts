@@ -1,4 +1,5 @@
-import { parentPort, workerData } from "worker_threads";
+import { parentPort } from "worker_threads";
+import { WorkState } from "./WorkState";
 
 parentPort?.on('message', data => {
     console.log(`Worker ${data.id} started.`);
@@ -9,5 +10,5 @@ parentPort?.on('message', data => {
         }    
     }
     console.log(`Worker ${data.id} finished.`);
-    parentPort?.postMessage('done');
+    parentPort?.postMessage(WorkState.DONE);
 });
